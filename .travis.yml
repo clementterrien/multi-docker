@@ -13,7 +13,7 @@ script:
 after_success:
   - docker build -t cterrien/multi-client ./client
   - docker build -t cterrien/multi-nginx ./nginx
-  - docker build -t cterrien/multi-client/multi-server ./server
+  - docker build -t cterrien/multi-server ./server
   - docker build -t cterrien/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push cterrien/multi-client
