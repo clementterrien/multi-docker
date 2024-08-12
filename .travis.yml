@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-  -docker build -t clementterrien/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t clementterrien/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=trueclementterrien/react-test npm test -- ----coverage
