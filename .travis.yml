@@ -15,3 +15,8 @@ after_success:
   - docker build -t clementterrien/multi-nginx ./nginx
   - docker build -t clementterrien/multi-server ./server
   - docker build -t clementterrien/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push clementterrien/multi-client
+  - docker push clementterrien/multi-nginx
+  - docker push clementterrien/multi-server
+  - docker push clementterrien/multi-worker
